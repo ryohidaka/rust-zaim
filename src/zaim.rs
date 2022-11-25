@@ -3,6 +3,8 @@ use reqwest::{Client, Method, Response};
 use reqwest_oauth1::{OAuthClientProvider, Secrets};
 use std::env;
 
+use crate::types::me::MeResponse;
+
 struct Env {
     base_url: String,
     consumer_key: String,
@@ -58,4 +60,19 @@ fn get_env() -> Env {
         token_secret,
         oauth_verifier,
     }
+}
+
+/// FetchMe
+///
+/// Fetch user information during authentication
+pub async fn fetch_me() -> MeResponse {
+    let endpoint = "home/user/verify";
+
+    let me = send_request(endpoint, Method::GET)
+        .await
+        .json::<MeResponse>()
+        .await
+        .expect("failed to convert struct from json");
+
+    return me;
 }
