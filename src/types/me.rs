@@ -1,6 +1,7 @@
-/// Me
+/// User information during authentication.
 ///
-/// User info.
+/// # Docs
+/// @see https://dev.zaim.net/home/api#user_verify
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
