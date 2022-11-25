@@ -64,24 +64,7 @@ fn get_env() -> Env {
 
 /// FetchMe
 ///
-/// Fetch user information during authentication.
-///
-/// # Docs
-/// @see https://dev.zaim.net/home/api#user_verify
-///
-/// # Example
-/// Fetch user information during authentication.
-/// ```
-/// mod types;
-/// mod zaim;
-///
-/// #[tokio::main]
-/// async fn main() {
-///   // Fetch Me
-///   let me = zaim::fetch_me().await.me;
-///   println!("{:?}", me);
-/// }
-/// ```
+/// Fetch user information during authentication
 pub async fn fetch_me() -> MeResponse {
     let endpoint = "home/user/verify";
 
