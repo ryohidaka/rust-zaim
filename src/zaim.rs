@@ -62,7 +62,7 @@ fn get_env() -> Env {
     }
 }
 
-/// FetchMe
+/// Fetch Me
 ///
 /// Fetch user information during authentication.
 ///
