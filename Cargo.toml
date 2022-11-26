@@ -1,6 +1,6 @@
 [package]
 name = "zaim"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Ryo Hidaka (日高凌) <tech@ryohidaka.jp>"]
 edition = "2021"
 
