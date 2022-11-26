@@ -25,5 +25,5 @@ pub struct Me {
 #[serde(rename_all = "camelCase")]
 pub struct MeResponse {
     pub me: Me,
-    requested: i32,
+    pub requested: i32,
 }
