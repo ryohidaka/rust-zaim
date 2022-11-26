@@ -85,11 +85,11 @@ fn get_env() -> Env {
 pub async fn fetch_me() -> MeResponse {
     let endpoint = "home/user/verify";
 
-    let me = send_request(endpoint, Method::GET)
+    let res = send_request(endpoint, Method::GET)
         .await
         .json::<MeResponse>()
         .await
         .expect("failed to convert struct from json");
 
-    return me;
+    res
 }
