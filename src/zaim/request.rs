@@ -28,3 +28,20 @@ pub async fn send_request(endpoint: &str, method: Method) -> Response {
 
     res
 }
+
+/// Send UnAuth Request
+pub async fn send_request_unauth(endpoint: &str, method: Method) -> Response {
+    let env = dotenv::get_env();
+
+    let client = Client::new();
+
+    let url = format!("{}{}", env.base_url, endpoint);
+
+    let res = client
+        .request(method, url)
+        .send()
+        .await
+        .expect("failed to get response");
+
+    res
+}
