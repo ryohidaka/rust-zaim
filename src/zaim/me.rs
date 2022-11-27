@@ -1,5 +1,6 @@
-use crate::types::me::MeResponse;
 use reqwest::Method;
+
+use crate::types::home::me::MeResponse;
 
 use super::request::send_request;
 
@@ -13,8 +14,9 @@ use super::request::send_request;
 /// # Example
 /// Fetch user information during authentication.
 /// ```
-/// mod types;
 /// use zaim::zaim::me;
+///
+/// mod types;
 ///
 /// #[tokio::main]
 /// async fn main() {
@@ -24,7 +26,7 @@ use super::request::send_request;
 /// }
 /// ```
 pub async fn fetch_me() -> MeResponse {
-    let endpoint = "home/user/verify";
+    let endpoint = "user/verify";
 
     let res = send_request(endpoint, Method::GET)
         .await
