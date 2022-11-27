@@ -14,8 +14,9 @@ use super::request::send_request;
 /// # Example
 /// Showing the list of currencies.
 /// ```
-/// mod types;
 /// use zaim::zaim::currency;
+///
+/// mod types;
 ///
 /// #[tokio::main]
 /// async fn main() {

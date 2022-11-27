@@ -14,9 +14,9 @@ use super::request::send_request;
 /// # Example
 /// Get default genre list.
 /// ```
-/// mod types;
-///
 /// use zaim::zaim::genre;
+///
+/// mod types;
 ///
 /// #[tokio::main]
 /// async fn main() {

@@ -13,8 +13,9 @@ use super::request::send_request;
 /// # Example
 /// Fetch user information during authentication.
 /// ```
-/// mod types;
 /// use zaim::zaim::me;
+///
+/// mod types;
 ///
 /// #[tokio::main]
 /// async fn main() {

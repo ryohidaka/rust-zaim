@@ -14,8 +14,9 @@ use super::request::send_request;
 /// # Example
 /// Get default category list.
 /// ```
-/// mod types;
 /// use zaim::zaim::category;
+///
+/// mod types;
 ///
 /// #[tokio::main]
 /// async fn main() {
