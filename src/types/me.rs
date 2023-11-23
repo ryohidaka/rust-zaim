@@ -4,7 +4,7 @@
 /// @see https://dev.zaim.net/home/api#user_verify
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default, PartialEq, Eq)]
 pub struct Me {
     pub id: i32,
     pub login: String,
@@ -21,7 +21,7 @@ pub struct Me {
     pub profile_modified: String,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct MeResponse {
     pub me: Me,

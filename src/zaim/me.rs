@@ -11,9 +11,7 @@ use super::request::send_request;
 /// @see https://dev.zaim.net/home/api#user_verify
 ///
 /// # Example
-/// Fetch user information during authentication.
-/// ```
-/// mod types;
+/// ```rust
 /// use zaim::zaim::me;
 ///
 /// #[tokio::main]

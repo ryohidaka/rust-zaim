@@ -1,7 +1,7 @@
 use reqwest::{Client, Method, Response};
 use reqwest_oauth1::{OAuthClientProvider, Secrets};
 
-use crate::{zaim::dotenv, constants::BASE_URL};
+use crate::zaim::dotenv;
 
 /// Send Request
 pub async fn send_request(endpoint: &str, method: Method) -> Response {
@@ -16,7 +16,7 @@ pub async fn send_request(endpoint: &str, method: Method) -> Response {
 
     let client = Client::new();
 
-    let url = format!("{}{}", BASE_URL, endpoint);
+    let url = format!("{}{}", env.base_url, endpoint);
 
     let res = client
         .oauth1(secrets)
