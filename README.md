@@ -11,7 +11,6 @@ rust-zaim is a Rust client library for the [Zaim API](https://dev.zaim.net/home)
 ```zsh
 $ cp .env.example .env
 $ cat .env
-ZAIM_BASE_URL=
 ZAIM_CUSTOMER_ID=
 ZAIM_CUSTOMER_SECRET=
 ZAIM_TOKEN=
