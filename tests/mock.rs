@@ -5,7 +5,7 @@ use mockito::{Server, ServerGuard};
 pub fn create_mock_server() -> ServerGuard {
     // Set up mock server
     let mock_server = setup_mock_server();
-    
+
     // Set BASE_URL environment variable
     set_base_url_env(&mock_server);
 
