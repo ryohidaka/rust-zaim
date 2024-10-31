@@ -1,6 +1,6 @@
 [package]
 name = "zaim"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["ryohidaka <39184410+ryohidaka@users.noreply.github.com>"]
 edition = "2021"
 
