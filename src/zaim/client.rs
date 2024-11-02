@@ -4,8 +4,6 @@ use std::collections::HashMap;
 
 use crate::constants::BASE_URL;
 
-use super::dotenv::get_env;
-
 pub struct Zaim<'a> {
     pub http_client: Client,
     pub secrets: Secrets<'a>,
@@ -13,15 +11,28 @@ pub struct Zaim<'a> {
 }
 
 impl<'a> Zaim<'a> {
-    pub fn new() -> Self {
-        let env = get_env();
-        let secrets = Secrets::new(env.consumer_key, env.consumer_secret)
-            .token(env.access_token, env.token_secret);
+    /// Initialize a new Zaim client
+    /// Required secrets should be provided as arguments
+    ///
+    /// # Arguments
+    /// - `consumer_key`: Consumer key
+    /// - `consumer_secret`: Consumer secret
+    /// - `access_token`: Access token
+    /// - `token_secret`: Token secret
+    /// - `oauth_verifier`: OAuth verifier
+    pub fn new(
+        consumer_key: String,
+        consumer_secret: String,
+        access_token: String,
+        token_secret: String,
+        oauth_verifier: String,
+    ) -> Self {
+        let secrets = Secrets::new(consumer_key, consumer_secret).token(access_token, token_secret);
 
         Self {
             http_client: Client::new(),
             secrets,
-            oauth_verifier: env.oauth_verifier,
+            oauth_verifier,
         }
     }
 

@@ -10,21 +10,33 @@ impl<'a> Zaim<'a> {
     /// @see https://dev.zaim.net/home/api#user_verify
     ///
     /// # Example
+    ///
     /// ```rust
+    /// use dotenv::dotenv;
+    /// use std::env;
     /// use zaim::zaim::client::Zaim;
     ///
     /// #[tokio::main]
     /// async fn main() {
-    ///   let zaim = Zaim::new();
-    ///   match zaim.fetch_me().await {
-    ///       Ok(me_response) => {
-    ///           let me = me_response.me;
-    ///           println!("{:?}", me);
-    ///       },
-    ///       Err(e) => {
-    ///           eprintln!("Error fetching user information: {}", e);
-    ///       }
-    ///   }
+    ///     dotenv().ok(); // Load environment variables
+    ///
+    ///     let zaim = Zaim::new(
+    ///         env::var("ZAIM_CUSTOMER_ID").unwrap(),
+    ///         env::var("ZAIM_CUSTOMER_SECRET").unwrap(),
+    ///         env::var("ZAIM_TOKEN").unwrap(),
+    ///         env::var("ZAIM_SECRET").unwrap(),
+    ///         env::var("ZAIM_VERIFIER").unwrap(),
+    ///     );
+    ///
+    ///     match zaim.fetch_me().await {
+    ///         Ok(me_response) => {
+    ///             let me = me_response.me;
+    ///             println!("{:?}", me);
+    ///         },
+    ///         Err(e) => {
+    ///             eprintln!("Error fetching user information: {}", e);
+    ///         }
+    ///     }
     /// }
     /// ```
     pub async fn fetch_me(&self) -> Result<MeResponse, Box<dyn std::error::Error>> {
