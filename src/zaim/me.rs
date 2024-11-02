@@ -1,5 +1,4 @@
-use super::client::Zaim;
-use crate::models::me::MeResponse;
+use crate::{models::me::MeResponse, Zaim};
 
 impl<'a> Zaim<'a> {
     /// Fetch Me
@@ -14,7 +13,7 @@ impl<'a> Zaim<'a> {
     /// ```rust
     /// use dotenv::dotenv;
     /// use std::env;
-    /// use zaim::zaim::client::Zaim;
+    /// use zaim::client::Zaim;
     ///
     /// #[tokio::main]
     /// async fn main() {
