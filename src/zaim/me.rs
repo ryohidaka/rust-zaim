@@ -1,34 +1,39 @@
+use super::client::Zaim;
 use crate::types::me::MeResponse;
-use reqwest::Method;
 
-use super::request::send_request;
+impl<'a> Zaim<'a> {
+    /// Fetch Me
+    ///
+    /// Fetch user information during authentication.
+    ///
+    /// # Docs
+    /// @see https://dev.zaim.net/home/api#user_verify
+    ///
+    /// # Example
+    /// ```rust
+    /// use zaim::zaim::client::Zaim;
+    ///
+    /// #[tokio::main]
+    /// async fn main() {
+    ///   let zaim = Zaim::new();
+    ///   match zaim.fetch_me().await {
+    ///       Ok(me_response) => {
+    ///           let me = me_response.me;
+    ///           println!("{:?}", me);
+    ///       },
+    ///       Err(e) => {
+    ///           eprintln!("Error fetching user information: {}", e);
+    ///       }
+    ///   }
+    /// }
+    /// ```
+    pub async fn fetch_me(&self) -> Result<MeResponse, Box<dyn std::error::Error>> {
+        let endpoint = "home/user/verify";
+        let params = None;
 
-/// Fetch Me
-///
-/// Fetch user information during authentication.
-///
-/// # Docs
-/// @see https://dev.zaim.net/home/api#user_verify
-///
-/// # Example
-/// ```rust
-/// use zaim::zaim::me;
-///
-/// #[tokio::main]
-/// async fn main() {
-///   // Fetch Me
-///   let me = me::fetch_me().await.me;
-///   println!("{:?}", me);
-/// }
-/// ```
-pub async fn fetch_me() -> MeResponse {
-    let endpoint = "home/user/verify";
+        let res = self.get(endpoint, params).await?;
+        let me_response = res.json::<MeResponse>().await?;
 
-    let res = send_request(endpoint, Method::GET)
-        .await
-        .json::<MeResponse>()
-        .await
-        .expect("failed to convert struct from json");
-
-    res
+        Ok(me_response)
+    }
 }

@@ -1,10 +1,7 @@
 use dotenv::dotenv;
 use std::env;
 
-use crate::constants::BASE_URL;
-
 pub struct Env {
-    pub base_url: String,
     pub consumer_key: String,
     pub consumer_secret: String,
     pub access_token: String,
@@ -16,7 +13,6 @@ pub struct Env {
 pub fn get_env() -> Env {
     dotenv().ok();
 
-    let base_url = env::var("BASE_URL").unwrap_or_else(|_| BASE_URL.to_string());
     let consumer_key = env::var("ZAIM_CUSTOMER_ID").expect("ZAIM_CUSTOMER_ID must be set.");
     let consumer_secret =
         env::var("ZAIM_CUSTOMER_SECRET").expect("ZAIM_CUSTOMER_SECRET must be set.");
@@ -25,7 +21,6 @@ pub fn get_env() -> Env {
     let oauth_verifier = env::var("ZAIM_VERIFIER").expect("ZAIM_VERIFIER must be set.");
 
     Env {
-        base_url,
         consumer_key,
         consumer_secret,
         access_token,
