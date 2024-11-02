@@ -1,5 +1,5 @@
 use super::client::Zaim;
-use crate::types::me::MeResponse;
+use crate::models::me::MeResponse;
 
 impl<'a> Zaim<'a> {
     /// Fetch Me
